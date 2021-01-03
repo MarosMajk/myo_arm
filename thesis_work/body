@@ -1,0 +1,29 @@
+Abstract - jednoducho opísať čo som robil v bakalárke
+
+Uvod - introduction
+- popíšem konkrétnu situáciu, prečo som sa venoval danej téme
+
+Máme nejaké kapitoly 
+- prvá kapitola, analýza súčastného stavu, existujúce riešenia , prečo som si to vybral, porovnanie riešení, analýza súčastného stavu
+- druhá kapitola - návrh, riešenie, neznamená že som to aj spravil - koncept, architektúra a pod.
+- tretia kapitola - teoria, použité technologie, material
+- tretia kapitola - implementácia, reálne čo som spravil, ako, môže byť aj podkapitola - použité technológie, a pod.
+v kapitole implementácia píšem reálne ako som postupoval, program. jazyk, teoretický popis
+- štvrtá kapitola - zhrnutie, experimenty, výsledky z experimentov, ukážka - obrázky, ako sa hýbe, praktickejšia kapitola
+- posledná kapitola - zhodnotenie experimentov, zhrnutie, je v takom stave že na nej treba pracovať? dalšia diplomovka? zhrnutie perspektívu do budúcna, zhrnutie
+experimentov, výstup z bakalárskej práce.
+
+analýza súčastného stavu - 1. história - prečo je taký problém, historia funkcionality protéz
+			 - 2. súčastný stav - existujúce protézy, ponúkané funkcionality, cena
+			 - 3. Zo soc. hľadiska - Koľko ľudí je ochrnutých, prečo je to dôležité riešiť, štatistika US, EU, Azia 
+
+návrh - 1. napr. Prvá navrhnutá architektúra + zhodnotenie
+      - 2. druhá navrhnutá architektúra + zhodnotenie
+      - 3. 
+
+implementácia   - 1. 
+		- 2. 
+experimenty
+záver
+
+
