@@ -16,12 +16,10 @@ class Servos:
     def _us2duty(self, value):
         return int(4095 * value / self.period)
 
-    def position(self, index, degrees=None, radians=None, us=None, duty=None):
+    def position(self, index, degrees=None,us=None, duty=None):
         span = self.max_duty - self.min_duty
         if degrees is not None:
             duty = self.min_duty + span * degrees / self.degrees
-        elif radians is not None:
-            duty = self.min_duty + span * radians / math.radians(self.degrees)
         elif us is not None:
             duty = self._us2duty(us)
         elif duty is not None:
