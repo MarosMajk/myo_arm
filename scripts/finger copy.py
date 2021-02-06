@@ -32,18 +32,17 @@ class Finger():
         if servo == self.servo_down: self.down_position = target_degree
         if servo == self.servo_up: self.down_position = target_degree
         
-
         for degree in range(0, target_degree):
             servos.position(servo, degrees = degree)
-            time.sleep(0.0015)
+            time.sleep(0.002)
 
-        time.sleep(0.1)
+        time.sleep(0.5)
 
     def release(self):
         servos.position(self.servo_up, degrees = 0)
-        time.sleep(0.1)
+        time.sleep(0.5)
         servos.position(self.servo_down, degrees = 0)
-        time.sleep(0.1)
+        time.sleep(0.5)
 
     def move(self, direction):
 
@@ -54,19 +53,21 @@ class Finger():
 
         if direction == 0:
             self.release()
-            time.sleep(0.5)
+            time.sleep(0.2)
         
         if direction == 1 :
             servos.position(self.servo_down, degrees = 0)
             self.down_position = 0
-            time.sleep(0.05)
+            time.sleep(0.25)
             self.servo_movement(self.servo_up)
+            time.sleep(0.5)
 
         
         if direction == 2:
             servos.position(self.servo_up, degrees = 0)
-            time.sleep(0.05)
+            time.sleep(0.5)
             self.servo_movement(self.servo_down)
+            time.sleep(0.5)
     
 
     def get_position(self):

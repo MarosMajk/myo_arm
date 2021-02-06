@@ -19,7 +19,7 @@ print(i2c.scan())
 
 servos = servo.Servos(i2c)
 
-servo_pin = 14   
+servo_pin = 15   
 
 servos.position(servo_pin, degrees = 0)
 time.sleep(2)
@@ -28,7 +28,7 @@ for degrees in range(0,180):
     servos.position(servo_pin, degrees = degrees)
     time.sleep(0.002)
 
-time.sleep(0.5)
+#time.sleep(0.5)
 
 servos.position(servo_pin, degrees = 0)
 
