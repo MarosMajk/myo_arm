@@ -24,9 +24,10 @@ class Finger():
         type(self).servo_down_pin = self.servo_down
 
 
-    def servo_movement(self, servo, target_degree = None):
+    def servo_movement(self, servo, speed = None, target_degree = None):
         '''Function set servomotor position to target degree'''
-
+        #if speed = None: speed 0.002
+        if speed = None: speed 0.01
         if target_degree == None: target_degree = 180
 
         if servo == self.servo_down: self.down_position = target_degree
@@ -34,7 +35,7 @@ class Finger():
         
         for degree in range(0, target_degree):
             servos.position(servo, degrees = degree)
-            time.sleep(0.002)
+            time.sleep(speed)
 
         time.sleep(0.5)
 

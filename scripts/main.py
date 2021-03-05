@@ -24,34 +24,37 @@ servos = servo.Servos(i2c)
 Here we have some description of servos and 
 where exactly they are pinned to PCA9685
 -------------------------------------------
-Index figner UP ->15
+Thumb UP -> 0
+Thumb Down - > 1
+Thumb special -> x
+------------
+Index figner UP -> 15 *
 Index figner DOWN -> 14
 ------------
-Pinky UP -> 13
-Pinky DOWN -> 12
+Middle finger UP -> 11 *
+Middle finger DOWN -> 10 *
 ------------
-Ring Finger UP -> 11
-Ring Finger Down -> 10
+Ring Finger UP -> 5*
+Ring Finger Down -> 4 *
 ------------
-Middle finger UP -> 09
-Middle finger DOWN -> 08
+Pinky UP -> 9 *
+Pinky DOWN -> 8 *
 ------------
-Thumb UP ->
-Thumb Down - >
 '''
 
+#thumb = ("Thumb",1,2,3)
 
 
-index_finger = finger.Finger("Index Finger",15,14)
-pinky_finger = finger.Finger("Pinky Finger",13,12)
+
+index_finger = finger.Finger("Index Finger",14,13)
+middle_finger = finger.Finger("Middle finger",11,8)
 ring_finger = finger.Finger("Ring finger",5,4)
-middle_finger = finger.Finger("Middle finger",10,8)
-thumb_finger = ("Thumb,")
+pinky_finger = finger.Finger("Pinky Finger",6,7)
 
 
 class Hand():
     
-    def __init__(self, index, middle, ring, pinky):
+    def __init__(self,index, middle, ring, pinky):
         self.index_finger = index
         self.middle_finger = middle
         self.ring_finger = ring
@@ -67,12 +70,27 @@ class Hand():
 
     def reset(self):
         self.set_position(0)
+        time.sleep(0.1)
+        servos.position(1, degrees = 0)
+        time.sleep(0.1)
 
     def fist(self):
-        self.set_position(2)
+        self.set_position(1)
+        time.sleep(0.1)
+        servos.position(1, degrees = 0)
+        time.sleep(0.1)
+        servos.position(2, degrees = 140)
+        time.sleep(0.1)
 
     def spread_fingers(self):
-        self.set_position(1)
+        self.set_position(2)
+        time.sleep(0.1)
+        servos.position(2, degrees = 0)
+        time.sleep(0.1)
+        servos.position(1, degrees = 180)
+        time.sleep(0.1)
+
+
 
     def rock_n_roll(self):
         self.reset()
@@ -83,23 +101,20 @@ class Hand():
         pass
 
 
-
-myo_hand = Hand(index_finger, middle_finger, ring_finger, pinky_finger)
-
-
+myo_hand = Hand(index_finger,middle_finger,ring_finger,pinky_finger)
+time.sleep(3)
 myo_hand.reset()
 
-#pinky_finger.move(2)
 
 
-#myo_hand.spread_fingers()
+time.sleep(0.1)
+myo_hand.spread_fingers()
+time.sleep(2)
+myo_hand.reset()
+myo_hand.fist()
+time.sleep(8)
+myo_hand.spread_fingers()
+time.sleep(4)
+myo_hand.reset()
 
-#myo_hand.reset()
-
-#myo_hand.fist()
-
-#myo_hand.rock_n_roll()
-
-
-#servos.position(2, degrees = 160)
 
